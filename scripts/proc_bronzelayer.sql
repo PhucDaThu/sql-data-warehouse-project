@@ -29,11 +29,11 @@ BEGIN
 		PRINT '------------------------------------------------------------'
 
 		SET @start_time = GETDATE();
-		PRINT 'TRUNGCATING TABLE: bronze.crm_cut_info'
-		TRUNCATE TABLE bronze.crm_cut_info;
+		PRINT 'TRUNGCATING TABLE: bronze.crm_cust_info'
+		TRUNCATE TABLE bronze.crm_cust_info;
 
-		PRINT 'INSERTING DATA TO: bronze.crm_cut_info'
-		BULK INSERT bronze.crm_cut_info
+		PRINT 'INSERTING DATA TO: bronze.crm_cust_info'
+		BULK INSERT bronze.crm_cust_info
 		FROM 'D:\sql-data-warehouse-project\datasets\source_crm\cust_info.csv'
 		WITH (
 			FIRSTROW = 2,
