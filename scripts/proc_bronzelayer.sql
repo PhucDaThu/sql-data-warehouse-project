@@ -1,6 +1,6 @@
 /*
 =================================================================================================
-Tải dữ liệu từ nguồn vào Layer Bronze
+Procedure: Tải dữ liệu từ nguồn vào Layer Bronze
 =================================================================================================
 Mục đích script:
 	Tạo ra một procedure lưu trữ để tải dữ liệu từ các file CSV bên ngoài vào schema 'bronze'.
