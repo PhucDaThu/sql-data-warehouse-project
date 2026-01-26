@@ -12,8 +12,8 @@ cst_id,
 cst_key,
 TRIM(cst_firstname) AS cst_firstname,
 TRIM(cst_lastname) AS cst_lastname,
-CASE WHEN cst_marital_status='S' then 'Single'
-	 WHEN cst_marital_status='M' then 'Married'
+CASE WHEN UPPER(TRIM(cst_marital_status))='S' then 'Single'
+	 WHEN UPPER(TRIM(cst_marital_status))='M' then 'Married'
 	 ELSE 'n/a'
 END cst_marital_status,
 CASE WHEN UPPER(TRIM(cst_gndr))='F' THEN 'Female'
