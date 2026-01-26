@@ -1,3 +1,12 @@
+INSERT INTO silver.crm_cust_info(
+cst_id,
+cst_key,
+cst_firstname,
+cst_lastname,
+cst_marital_status,
+cst_gndr,
+cst_create_date
+)
 SELECT 
 cst_id,
 cst_key,
@@ -10,7 +19,7 @@ END cst_marital_status,
 CASE WHEN UPPER(TRIM(cst_gndr))='F' THEN 'Female'
 	 WHEN UPPER(TRIM(cst_gndr))='M' THEN 'Male'
 	 ELSE 'n/a'
-END st_gndr,
+END cst_gndr,
 cst_create_date
 FROM
 (SELECT *,
