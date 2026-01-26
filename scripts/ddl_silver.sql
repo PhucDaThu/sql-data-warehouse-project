@@ -1,3 +1,15 @@
+/*
+==============================================================================================
+Tạo bảng cho silver layer
+==============================================================================================
+Mục đích script:
+	Tạo ra bảng trong 2 file crm và prd. Kiểm tra xem bảng đã tồn tại hay chưa, nếu đã tồn tại
+	thì ta xóa bảng và tạo lại bảng mới. 
+Lưu ý:
+	Sử dụng script này sẽ định nghĩa lại cấu trúc DDL của bảng từ 'silver'
+===============================================================================================
+*/
+
 IF OBJECT_ID('silver.crm_cust_info', 'U') IS NOT NULL
     DROP TABLE silver.crm_cust_info;
 GO
