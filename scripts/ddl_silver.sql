@@ -4,7 +4,8 @@ Tạo bảng cho silver layer
 ==============================================================================================
 Mục đích script:
 	Tạo ra bảng trong 2 file crm và prd. Kiểm tra xem bảng đã tồn tại hay chưa, nếu đã tồn tại
-	thì ta xóa bảng và tạo lại bảng mới. 
+	thì ta xóa bảng và tạo lại bảng mới. Ngoài ra ta tạo thêm cột dwh_create_date để cho biết 
+	thời gian dữ liệu được nhập
 Lưu ý:
 	Sử dụng script này sẽ định nghĩa lại cấu trúc DDL của bảng từ 'silver'
 ===============================================================================================
@@ -20,7 +21,8 @@ cst_firstname NVARCHAR(50),
 cst_lastname NVARCHAR(50),
 cst_marital_status	NVARCHAR(50),
 cst_gndr NVARCHAR(50),
-cst_create_date DATETIME
+cst_create_date DATETIME,
+dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
 
@@ -34,7 +36,8 @@ prd_nm NVARCHAR(50),
 prd_cost INT,
 prd_line NVARCHAR(50),
 prd_start_dt DATETIME,
-prd_end_dt DATETIME
+prd_end_dt DATETIME,
+dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
 
@@ -51,6 +54,7 @@ sls_due_dt INT,
 sls_sales INT,
 sls_quantity INT,
 sls_price INT,
+dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
 
@@ -60,7 +64,8 @@ GO
 CREATE TABLE silver.erp_CUST_AZ12(
 CID NVARCHAR(50),
 BDATE NVARCHAR(50),
-GEN NVARCHAR(50)
+GEN NVARCHAR(50),
+dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
 
@@ -69,7 +74,8 @@ IF OBJECT_ID('silver.erp_LOC_A101', 'U') IS NOT NULL
 GO
 CREATE TABLE silver.erp_LOC_A101(
 CID NVARCHAR(50),
-CNTRY NVARCHAR(50)
+CNTRY NVARCHAR(50),
+dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
 
@@ -80,5 +86,6 @@ CREATE TABLE silver.erp_PX_CAT_G1V2(
 ID NVARCHAR(50),
 CAT NVARCHAR(50),
 SUBCAT NVARCHAR(50),
-MAINTENANCE NVARCHAR(50)
+MAINTENANCE NVARCHAR(50),
+dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
