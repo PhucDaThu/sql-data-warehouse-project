@@ -1,3 +1,21 @@
+/*
+=================================================================================================
+Procedure: Tải dữ liệu vào Layer Silver
+=================================================================================================
+Mục đích script:
+	Tạo ra một procedure lưu trữ để tải dữ liệu từ schema 'bronze' vào schema 'silver' bằng cách 
+	thực hiện các thao tác ETL (Extract, Transform, Load)
+	Đầu tiên kiểm tra xem dữ liệu có tồn tại trong bảng không, nếu có thì xóa đi các dữ liệu.
+	Sau đó, nạp dữ liệu đã được làm sạch và biến đổi từ bronze vào silver. Sau khi tạo xong thì 
+	sử dụng hàm EXEC để thực thi procedure, nếu khởi tạo không thành công màn hình sẽ hiện thông 
+	báo lỗi cũng như thông tin lỗi.
+Tham số:
+	Không nhận tham số đầu vào và không trả về giá trị nào
+Lưu ý:
+	Sử dụng script sẽ xóa đi tất cả giá trị hiện có trong bảng để có thể nạp dữ liệu từ bronze
+=================================================================================================
+*/
+
 CREATE OR ALTER PROCEDURE silver.load_silver AS
 BEGIN
 	DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME
